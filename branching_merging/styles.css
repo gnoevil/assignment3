@@ -4,7 +4,16 @@
 body {
 	margin: 0 auto;
 	width: 900px;
+	color: white;
+	background: black;
+}
+img {
+	display: inline-block;
+	
 }
 ul {
-	list-style: none;
+	display: block;
+}
+li {
+	display: inline-block;
 }
