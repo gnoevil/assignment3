@@ -1,150 +1,49 @@
-Last login: Thu Dec 24 18:21:26 on ttys000
-Genos-MBP:~ gnoevil$ pwd
-/Users/gnoevil
-Genos-MBP:~ gnoevil$ cd ..
-Genos-MBP:Users gnoevil$ cd Desktop
--bash: cd: Desktop: No such file or directory
-Genos-MBP:Users gnoevil$ ls -l
-total 0
-drwxrwxrwt   5 root     wheel  170 Dec 15 13:45 Shared
-drwxr-xr-x+ 20 gnoevil  staff  680 Dec 24 18:34 gnoevil
-Genos-MBP:Users gnoevil$ cd gnoevil
-Genos-MBP:~ gnoevil$ ls -l
-total 0
-drwx------   4 gnoevil  staff   136 Dec 15 14:21 Applications
-drwx------+  6 gnoevil  staff   204 Dec 24 18:14 Desktop
-drwx------+ 18 gnoevil  staff   612 Dec 21 12:23 Documents
-drwx------+ 11 gnoevil  staff   374 Dec 24 13:03 Downloads
-drwx------@ 51 gnoevil  staff  1734 Dec 16 00:52 Library
-drwx------+  3 gnoevil  staff   102 Dec 15 07:21 Movies
-drwx------+  4 gnoevil  staff   136 Dec 16 00:52 Music
-drwx------+  4 gnoevil  staff   136 Dec 15 15:00 Pictures
-drwxr-xr-x+  5 gnoevil  staff   170 Dec 15 07:21 Public
-drwxr-xr-x   4 gnoevil  staff   136 Dec 24 18:35 new_project
+Last login: Sat Dec 26 13:24:36 on ttys000
 Genos-MBP:~ gnoevil$ cd Desktop
-Genos-MBP:Desktop gnoevil$ mkdir test
-mkdir: test: File exists
 Genos-MBP:Desktop gnoevil$ cd test
-Genos-MBP:test gnoevil$ ls -l
-total 8
--rw-r--r--@ 1 gnoevil  staff  1987 Dec 24 18:18 commands
--rw-r--r--  1 gnoevil  staff     0 Dec 24 17:59 commands.txt
--rw-r--r--  1 gnoevil  staff     0 Dec 24 18:15 index.html
--rw-r--r--  1 gnoevil  staff     0 Dec 24 18:16 index_2.html
-Genos-MBP:test gnoevil$ open commands
-Genos-MBP:test gnoevil$ ls -l
-total 8
--rw-r--r--@ 1 gnoevil  staff  1987 Dec 24 18:18 commands.txt
--rw-r--r--  1 gnoevil  staff     0 Dec 24 18:15 index.html
--rw-r--r--  1 gnoevil  staff     0 Dec 24 18:16 index_2.html
-Genos-MBP:test gnoevil$ git commit -m "updated commands.txt"
-fatal: Not a git repository (or any of the parent directories): .git
-Genos-MBP:test gnoevil$ git status
-fatal: Not a git repository (or any of the parent directories): .git
-Genos-MBP:test gnoevil$ git init
-Initialized empty Git repository in /Users/gnoevil/Desktop/test/.git/
-Genos-MBP:test gnoevil$ git status
+Genos-MBP:test gnoevil$ cd basic_repo
+Genos-MBP:basic_repo gnoevil$ git status
 On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
 
-Initial commit
+	modified:   ../commands.txt
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-	commands.txt
-	index.html
-	index_2.html
-
-nothing added to commit but untracked files present (use "git add" to track)
-Genos-MBP:test gnoevil$ git commit -m "updated commands.txt"
+no changes added to commit (use "git add" and/or "git commit -a")
+Genos-MBP:basic_repo gnoevil$ git add .
+Genos-MBP:basic_repo gnoevil$ git commit -m "initial commit"
 On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+	modified:   ../commands.txt
 
-Initial commit
-
-Untracked files:
-	commands.txt
-	index.html
-	index_2.html
-
-nothing added to commit but untracked files present
-Genos-MBP:test gnoevil$ git add
-Nothing specified, nothing added.
-Maybe you wanted to say 'git add .'?
-Genos-MBP:test gnoevil$ git add .
-Genos-MBP:test gnoevil$ git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
-
-	new file:   commands.txt
-	new file:   index.html
-	new file:   index_2.html
-
-Genos-MBP:test gnoevil$ git commit -m "commands.txt updated"
-[master (root-commit) d29ca5e] commands.txt updated
- 3 files changed, 47 insertions(+)
- create mode 100644 commands.txt
- create mode 100644 index.html
- create mode 100644 index_2.html
-Genos-MBP:test gnoevil$ touch styles.css
-Genos-MBP:test gnoevil$ git add .
-Genos-MBP:test gnoevil$ git log
-commit d29ca5e0d6f62f663924db65e90127b5a6f8d7da
-Author: John Doe <johndoe@example.com>
-Date:   Thu Dec 24 19:04:39 2015 -0800
-
-    commands.txt updated
-Genos-MBP:test gnoevil$ git revert -n HEAD
-error: could not revert d29ca5e... commands.txt updated
-hint: after resolving the conflicts, mark the corrected paths
-hint: with 'git add <paths>' or 'git rm <paths>'
-Genos-MBP:test gnoevil$ git revert -n 
-usage: git revert [<options>] <commit-ish>...
-   or: git revert <subcommand>
-
-    --quit                end revert or cherry-pick sequence
-    --continue            resume revert or cherry-pick sequence
-    --abort               cancel revert or cherry-pick sequence
-    -n, --no-commit       don't automatically commit
-    -e, --edit            edit the commit message
-    -s, --signoff         add Signed-off-by:
-    -m, --mainline <n>    parent number
-    --rerere-autoupdate   update the index with reused conflict resolution if possible
-    --strategy <strategy>
-                          merge strategy
-    -X, --strategy-option <option>
-                          option for merge strategy
-    -S, --gpg-sign[=<key-id>]
-                          GPG sign commit
-
-Genos-MBP:test gnoevil$ revert -n d29ca5e
--bash: revert: command not found
-Genos-MBP:test gnoevil$ git revert -n d29ca5e
-index.html: unmerged (e69de29bb2d1d6434b8b29ae775ad8c2e48c5391)
-index.html: unmerged (aa7b9c934bb43817f805418f2f8578528493cab2)
-fatal: Your index file is unmerged.
-Genos-MBP:test gnoevil$ git add .
-Genos-MBP:test gnoevil$ git status
-On branch master
-You are currently reverting commit d29ca5e.
-  (all conflicts fixed: run "git revert --continue")
-  (use "git revert --abort" to cancel the revert operation)
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	deleted:    commands.txt
-	modified:   index.html
-	deleted:    index_2.html
-	new file:   styles.css
-
-Genos-MBP:test gnoevil$ git commit -m "made changes to html"
-[master a0fdda4] made changes to html
- 4 files changed, 12 insertions(+), 47 deletions(-)
- delete mode 100644 commands.txt
- delete mode 100644 index_2.html
- create mode 100644 styles.css
-Genos-MBP:test gnoevil$ 
+no changes added to commit
+Genos-MBP:basic_repo gnoevil$ git branch
+  add-css
+* master
+  new-feature
+Genos-MBP:basic_repo gnoevil$ git push
+Counting objects: 28, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (27/27), done.
+Writing objects: 100% (28/28), 4.69 KiB | 0 bytes/s, done.
+Total 28 (delta 7), reused 0 (delta 0)
+To https://github.com/gnoevil/assignment3.git
+   a0fdda4..2a41f53  master -> master
+Genos-MBP:basic_repo gnoevil$ git add .
+Genos-MBP:basic_repo gnoevil$ git commit -m "assignment 4"
+[master d83a443] assignment 4
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+Genos-MBP:basic_repo gnoevil$ git push
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 474 bytes | 0 bytes/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+To https://github.com/gnoevil/assignment3.git
+   2a41f53..d83a443  master -> master
+Genos-MBP:basic_repo gnoevil$ 
