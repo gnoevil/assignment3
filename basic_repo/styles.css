@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+}
+body {
+	margin: 0 auto;
+	width: 900px;
+	color: white;
+	background: black;
+}
+img {
+	display: inline-block;
+	
+}
+ul {
+	display: block;
+}
+li {
+	display: inline-block;
+}
